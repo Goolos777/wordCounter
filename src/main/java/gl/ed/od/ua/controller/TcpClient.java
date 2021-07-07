@@ -11,7 +11,7 @@ import static org.asynchttpclient.Dsl.asyncHttpClient;
 
 public class TcpClient {
 
-    private static final int LIMIT_THREAD = 2;
+    private static final int LIMIT_THREAD = 1;
     private final Consumer<String> handler;
     private final AsyncHttpClient asyncHttpClient;
     public final ExecutorService executorService;

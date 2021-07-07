@@ -8,13 +8,14 @@ import java.util.stream.Stream;
 
 public class WordCounter implements Function<TitleContent, TitleCount> {
 
+    private static String REGULAR = "\\s+";
+
     @Override
     public TitleCount apply(TitleContent titleContent) {
         String title = titleContent.getTitle();
         String content = titleContent.getContent();
         long count = Stream.of(content)
-                .flatMap(line -> Stream.of(line.split("\n")))
-                .flatMap(line -> Stream.of(line.split(" ")))
+                .flatMap(line -> Stream.of(line.split(REGULAR)))
                 .count();
         return new TitleCount(title, count);
     }
